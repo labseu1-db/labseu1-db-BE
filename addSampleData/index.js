@@ -1,10 +1,15 @@
-const admin = require('./node_modules/firebase-admin');
+const admin = require('../node_modules/firebase-admin');
 const faker = require('faker');
-const serviceAccount = require("./labseu1-db-test-firebase-adminsdk-cgyig-2bee73d56b.json");
+const serviceAccount = require("../keys.json");
 const collectionKey = ["users", "organisations", "spaces", "threads", "comments"]; //name of the collection
+// admin.initializeApp({
+//     credential: admin.credential.cert(serviceAccount),
+//     databaseURL: "https://labseu1-db-test.firebaseio.com"
+// });
+
 admin.initializeApp({
-    credential: admin.credential.cert(serviceAccount),
-    databaseURL: "https://labseu1-db-test.firebaseio.com"
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: "https://labseu1-db-test2.firebaseio.com"
 });
 const uuid = require('uuid');
 const firestore = admin.firestore();
@@ -66,12 +71,20 @@ class Comment {
             this.commentCreatedAt = faker.date.past(),
             this.commentCreatedByUserName = props.commentCreatedByUserName,
             this.commentId = faker.random.number(),
-            this.isCommendDecided = faker.random.boolean(),
+            this.isCommentDecided = faker.random.boolean(),
             this.orgId = props.orgId,
             this.orgName = props.orgName,
             this.threadId = props.threadId,
             this.threadName = props.threadName
     }
+}
+
+module.exports = {
+    User,
+    Organisation,
+    Space,
+    Thread,
+    Comment
 }
 
 for (let i = 0; i < 51; i++) {
@@ -106,6 +119,9 @@ for (let i = 0; i < 51; i++) {
     const arrayOfSpaceIds = [space1Id, space2Id, space3Id, space4Id];
 
     const userIds = [user1Id, user2Id, user3Id, user4Id, user5Id];
+    const spacesId = [space1Id, space2Id, space3Id, space4Id];
+    const threadsId = [thread1Id, thread2Id, thread3Id, thread4Id, thread5Id];
+    const commentsId = [comment1Id, comment2Id, comment3Id, comment4Id, comment5Id];
 
     const user1 = new User({arrayOfOrgs, arrayOfSpaceNames, arrayOfSpaceIds});
     const user2 = new User({arrayOfOrgs, arrayOfSpaceNames, arrayOfSpaceIds});
@@ -227,6 +243,12 @@ for (let i = 0; i < 51; i++) {
     const threads = [thread1, thread2, thread3, thread4, thread5];
     const comments = [comment1, comment2, comment3, comment4, comment5];
 
+    // console.log(users);
+    // console.log(spaces);
+    // console.log(threads);
+    // console.log(comments);
+    // console.log(organisation1);
+
 
     for (let i = 0; i < users.length; i++) {
         firestore.collection(collectionKey[0]).doc(userIds[i]).set(Object.assign({}, users[i])).then((res) => {
@@ -237,36 +259,35 @@ for (let i = 0; i < 51; i++) {
         console.log(i);
     }
 
-    spaces.forEach(space => {
-        firestore.collection(collectionKey[2]).doc().set(Object.assign({}, space)).then((res) => {
+    for (let i = 0; i < spaces.length; i++) {
+        firestore.collection(collectionKey[2]).doc(spacesId[i]).set(Object.assign({}, spaces[i])).then((res) => {
         console.log("Document " + res.id + " successfully written!");
         }).catch((error) => {
         console.error("Error writing document: ", error);
         });
-    })
+    }
 
-    threads.forEach(thread => {
-        firestore.collection(collectionKey[3]).doc().set(Object.assign({}, thread)).then((res) => {
+    for (let i = 0; i < threads.length; i++) {
+        firestore.collection(collectionKey[3]).doc(threadsId[i]).set(Object.assign({}, threads[i])).then((res) => {
         console.log("Document " + res.id + " successfully written!");
         }).catch((error) => {
         console.error("Error writing document: ", error);
         });
-    })
+    }
 
-    comments.forEach(comment => {
-        firestore.collection(collectionKey[4]).doc().set(Object.assign({}, comment)).then((res) => {
+    for (let i = 0; i < comments.length; i++) {
+        firestore.collection(collectionKey[4]).doc(commentsId[i]).set(Object.assign({}, comments[i])).then((res) => {
         console.log("Document " + res.id + " successfully written!");
         }).catch((error) => {
         console.error("Error writing document: ", error);
         });
-    })
+    }
 
-    firestore.collection(collectionKey[1]).doc().set(Object.assign({}, organisation1)).then((res) => {
+    firestore.collection(collectionKey[1]).doc(org1Id).set(Object.assign({}, organisation1)).then((res) => {
     console.log("Document " + res.id + " successfully written!");
     }).catch((error) => {
     console.error("Error writing document: ", error);
     });
 }
-
 
 

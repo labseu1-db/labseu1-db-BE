@@ -1,0 +1,110 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`test components take snapshots Comment Snapshot 1`] = `
+Comment {
+  "arrayOfUserIdsWhoLiked": Array [
+    "9431f6f5-1201-4e7d-a3f2-88daf4572d06",
+  ],
+  "commentBody": "Quas eos beatae aut dolor voluptatem in.",
+  "commentCreatedAt": 2019-01-16T10:17:38.308Z,
+  "commentCreatedByUserName": "Brennon Runolfsdottir",
+  "commentId": 87927,
+  "isCommentDecided": false,
+  "orgId": "20e17791-00db-4d24-8023-1d7878d728cf",
+  "orgName": "Botsford, Schuppe and Hansen",
+  "threadId": "1d6fb206-3b3d-4636-a324-616e65cf1e9e",
+  "threadName": "Beauty",
+}
+`;
+
+exports[`test components take snapshots Organisation snapshot 1`] = `
+Organisation {
+  "arrayOfAdmins": Array [
+    Object {
+      "userEmail": "Davonte.Mann@gmail.com",
+      "userId": "9431f6f5-1201-4e7d-a3f2-88daf4572d06",
+    },
+    Object {
+      "userEmail": "Anissa.Hand@yahoo.com",
+      "userId": "2d67d8eb-b8bb-4a2d-9261-630f22e56096",
+    },
+    Object {
+      "userEmail": "Dayne.Rutherford45@hotmail.com",
+      "userId": "69062d35-9a06-41e8-b235-ebba32ead18a",
+    },
+  ],
+  "arrayOfUsers": Array [
+    Object {
+      "userEmail": "Nickolas92@hotmail.com",
+      "userId": "90522aeb-2c88-49e1-a128-180833e597c1",
+    },
+    Object {
+      "userEmail": "Reina58@gmail.com",
+      "userId": "04d0deea-4c02-4e46-8f22-b82cf69a29a2",
+    },
+  ],
+  "createdByUserId": 40904,
+  "isPremium": true,
+  "orgId": "20e17791-00db-4d24-8023-1d7878d728cf",
+  "orgMission": "Assimilated demand-driven data-warehouse",
+  "orgName": "Botsford, Schuppe and Hansen",
+  "orgUrl": "http://tad.biz",
+}
+`;
+
+exports[`test components take snapshots Space snapshot 1`] = `
+Space {
+  "arrayOfUserIdsInSpace": Array [
+    "9431f6f5-1201-4e7d-a3f2-88daf4572d06",
+    "2d67d8eb-b8bb-4a2d-9261-630f22e56096",
+    "69062d35-9a06-41e8-b235-ebba32ead18a",
+    "90522aeb-2c88-49e1-a128-180833e597c1",
+    "04d0deea-4c02-4e46-8f22-b82cf69a29a2",
+  ],
+  "orgId": "20e17791-00db-4d24-8023-1d7878d728cf",
+  "spaceCreatedByUserId": 39181,
+  "spaceId": "e551e54a-cdc5-4ac7-bab9-eca3e369bb70",
+  "spaceName": "Tools",
+}
+`;
+
+exports[`test components take snapshots Thread snapshot 1`] = `
+Thread {
+  "orgId": "20e17791-00db-4d24-8023-1d7878d728cf",
+  "spaceId": "e551e54a-cdc5-4ac7-bab9-eca3e369bb70",
+  "threadCreatedAt": 2018-05-03T13:51:05.403Z,
+  "threadCreatedByUserId": "90522aeb-2c88-49e1-a128-180833e597c1",
+  "threadCreatedByUserName": "Cole Schultz",
+  "threadId": 91300,
+  "threadName": "Toys",
+  "threadTopic": "omnis rerum eius",
+}
+`;
+
+exports[`test components take snapshots User snapshot 1`] = `
+User {
+  "arrayOfOrgs": Array [
+    Object {
+      "isAdmin": false,
+      "orgId": "20e17791-00db-4d24-8023-1d7878d728cf",
+      "orgName": "Botsford, Schuppe and Hansen",
+    },
+  ],
+  "arrayOfSpaceIds": Array [
+    "e551e54a-cdc5-4ac7-bab9-eca3e369bb70",
+    "cd00685c-8166-4cc8-92d7-806380ebed72",
+    "701105d0-99c4-4935-9faa-05718c9b0356",
+    "e6ebd93b-25e7-4f58-a943-7d4186df6aa8",
+  ],
+  "arrayOfSpaceNames": Array [
+    "Tools",
+    "Music",
+    "Books",
+    "Tools",
+  ],
+  "fullName": "Leo Runte",
+  "profileUrl": "http://lorempixel.com/640/480",
+  "userEmail": "Rhett23@gmail.com",
+  "userId": 51461,
+}
+`;
