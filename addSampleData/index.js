@@ -23,8 +23,7 @@ class User {
             this.userEmail = faker.internet.email(),
             this.arrayOfOrgs = props.arrayOfOrgs,
             this.arrayOfSpaceIds = props.arrayOfSpaceIds,
-            this.arrayOfSpaceNames = props.arrayOfSpaceNames,
-            this.userId = faker.random.number()
+            this.arrayOfSpaceNames = props.arrayOfSpaceNames
     }
 }
 
@@ -34,7 +33,6 @@ class Organisation {
             this.arrayOfUsers = props.arrayOfUsers,
             this.createdByUserId = props.createdByUserId,
             this.isPremium = faker.random.boolean(),
-            this.orgId = props.orgId,
             this.orgMission = faker.company.catchPhrase(),
             this.orgName = props.orgName,
             this.orgUrl = faker.internet.url()
@@ -46,7 +44,6 @@ class Space {
         this.arrayOfUserIdsInSpace = props.arrayOfUserIdsInSpace,
             this.orgId = props.orgId,
             this.spaceCreatedByUserId = props.spaceCreatedByUserId,
-            this.spaceId = props.spaceId,
             this.spaceName = props.spaceName
     }
 }
@@ -54,13 +51,12 @@ class Space {
 class Thread {
     constructor(props) {
         this.orgId = props.orgId,
-            this.spaceId = props.spaceId,
-            this.threadCreatedAt = faker.date.past(),
-            this.threadCreatedByUserId = props.threadCreatedByUserId,
-            this.threadCreatedByUserName = props.threadCreatedByUserName,
-            this.threadName = faker.commerce.department(),
-            this.threadTopic = faker.lorem.words(),
-            this.threadId = faker.random.number()
+        this.spaceId = props.spaceId,
+        this.threadCreatedAt = faker.date.past(),
+        this.threadCreatedByUserId = props.threadCreatedByUserId,
+        this.threadCreatedByUserName = props.threadCreatedByUserName,
+        this.threadName = faker.commerce.department(),
+        this.threadTopic = faker.lorem.words()
     }
 }
 
@@ -70,7 +66,7 @@ class Comment {
             this.commentBody = faker.lorem.text(),
             this.commentCreatedAt = faker.date.past(),
             this.commentCreatedByUserName = props.commentCreatedByUserName,
-            this.commentId = faker.random.number(),
+            this.commentCreatedByUserId = props.commentCreatedByUserId,
             this.isCommentDecided = faker.random.boolean(),
             this.orgId = props.orgId,
             this.orgName = props.orgName,
@@ -135,37 +131,33 @@ for (let i = 0; i < 11; i++) {
         arrayOfUsers: [
             {userEmail: user4.userEmail, userId: user4Id},
             {userEmail: user5.userEmail, userId: user5Id}],
-        createdByUserId: user1.userId,
+        createdByUserId: user1Id,
         orgId: arrayOfOrgs[0].orgId,
         orgName: arrayOfOrgs[0].orgName
         })
     const space1 = new Space({
         arrayOfUserIdsInSpace: [user1Id, user2Id, user3Id, user4Id, user5Id],
         orgId: org1Id,
-        spaceCreatedByUserId: user2.userId,
+        spaceCreatedByUserId: user2Id,
         spaceName: arrayOfSpaceNames[0],
-        spaceId: arrayOfSpaceIds[0]
     })
     const space2 = new Space({
         arrayOfUserIdsInSpace: [user1Id, user2Id, user3Id, user4Id, user5Id],
         orgId: org1Id,
-        spaceCreatedByUserId: user1.userId,
+        spaceCreatedByUserId: user1Id,
         spaceName: arrayOfSpaceNames[1],
-        spaceId: arrayOfSpaceIds[1]
     })
     const space3 = new Space({
         arrayOfUserIdsInSpace: [user1Id, user2Id, user3Id, user4Id, user5Id],
         orgId: org1Id,
-        spaceCreatedByUserId: user3.userId,
+        spaceCreatedByUserId: user3Id,
         spaceName: arrayOfSpaceNames[2],
-        spaceId: arrayOfSpaceIds[2]
     })
     const space4 = new Space({
         arrayOfUserIdsInSpace: [user1Id, user2Id, user3Id, user4Id, user5Id],
         orgId: org1Id,
-        spaceCreatedByUserId: user3.userId,
+        spaceCreatedByUserId: user3Id,
         spaceName: arrayOfSpaceNames[3],
-        spaceId: arrayOfSpaceIds[3]
     })
     const thread1 = new Thread({
         orgId: org1Id,
@@ -180,7 +172,7 @@ for (let i = 0; i < 11; i++) {
         threadCreatedByUserName: user5.fullName
     })
     const thread3 = new Thread({
-        orgId: organisation1.orgId,
+        orgId: org1Id,
         spaceId: space2Id,
         threadCreatedByUserId: user1Id,
         threadCreatedByUserName: user1.fullName
@@ -200,6 +192,7 @@ for (let i = 0; i < 11; i++) {
     const comment1 = new Comment({
         arrayOfUserIdsWhoLiked: [user1Id],
         commentCreatedByUserName: user2.fullName,
+        commentCreatedByUserId: user2Id,
         orgId: org1Id,
         orgName: organisation1.orgName,
         threadId: thread1Id,
@@ -208,6 +201,7 @@ for (let i = 0; i < 11; i++) {
     const comment2 = new Comment({
         arrayOfUserIdsWhoLiked: [user1Id],
         commentCreatedByUserName: user2.fullName,
+        commentCreatedByUserId: user2Id,
         orgId: org1Id,
         orgName: organisation1.orgName,
         threadId: thread2Id,
@@ -216,6 +210,7 @@ for (let i = 0; i < 11; i++) {
     const comment3 = new Comment({
         arrayOfUserIdsWhoLiked: [user3Id],
         commentCreatedByUserName: user4.fullName,
+        commentCreatedByUserId: user4Id,
         orgId: org1Id,
         orgName: organisation1.orgName,
         threadId: thread5Id,
@@ -224,6 +219,7 @@ for (let i = 0; i < 11; i++) {
     const comment4 = new Comment({
         arrayOfUserIdsWhoLiked: [user4Id],
         commentCreatedByUserName: user1.fullName,
+        commentCreatedByUserId: user1Id,
         orgId: org1Id,
         orgName: organisation1.orgName,
         threadId: thread3Id,
@@ -232,6 +228,7 @@ for (let i = 0; i < 11; i++) {
     const comment5 = new Comment({
         arrayOfUserIdsWhoLiked: [user5Id],
         commentCreatedByUserName: user4.fullName,
+        commentCreatedByUserId: user4Id,
         orgId: org1Id,
         orgName: organisation1.orgName,
         threadId: thread4Id,
@@ -248,6 +245,7 @@ for (let i = 0; i < 11; i++) {
     // console.log(threads);
     // console.log(comments);
     // console.log(organisation1);
+    // console.log(user1.arrayOfOrgs);
 
 
     for (let i = 0; i < users.length; i++) {
@@ -256,7 +254,6 @@ for (let i = 0; i < 11; i++) {
         }).catch((error) => {
         console.error("Error writing document: ", error);
         });
-        console.log(i);
     }
 
     for (let i = 0; i < spaces.length; i++) {
