@@ -87,7 +87,7 @@ module.exports = {
     Comment
 }
 
-for (let i = 0; i < 51; i++) {
+for (let i = 0; i < 11; i++) {
     const user1Id = uuid();
     const user2Id = uuid();
     const user3Id = uuid();
