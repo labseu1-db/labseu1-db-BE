@@ -1,0 +1,160 @@
+[debug] [2019-05-20T15:59:11.973Z] ----------------------------------------------------------------------
+[debug] [2019-05-20T15:59:11.976Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Sean\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions,hosting
+[debug] [2019-05-20T15:59:11.976Z] CLI Version:   6.10.0
+[debug] [2019-05-20T15:59:11.976Z] Platform:      win32
+[debug] [2019-05-20T15:59:11.976Z] Node Version:  v10.15.0
+[debug] [2019-05-20T15:59:11.977Z] Time:          Mon May 20 2019 16:59:11 GMT+0100 (British Summer Time)
+[debug] [2019-05-20T15:59:11.977Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-20T15:59:11.987Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-20T15:59:11.987Z] > authorizing via signed-in user
+[debug] [2019-05-20T15:59:11.988Z] [iam] checking project labseu1-db-test for permissions ["firebase.projects.get"]
+[debug] [2019-05-20T15:59:11.989Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/labseu1-db-test:testIamPermissions  
+
+[debug] [2019-05-20T15:59:12.771Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-20T15:59:12.774Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/labseu1-db-test  
+ 
+[debug] [2019-05-20T15:59:13.522Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-05-20T15:59:13.531Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/280261803917/clients/_:getWebAppConfig  
+ 
+[debug] [2019-05-20T15:59:13.532Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/280261803917:getServerAppConfig  
+ 
+[debug] [2019-05-20T15:59:13.797Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5001
+[debug] [2019-05-20T15:59:13.855Z] <<< HTTP RESPONSE 200
+[info] i  functions: Watching "D:\mango\labseu1-db-BE\functions" for Cloud Functions...
+[info] i  hosting: Serving hosting files from: public
+[info] +  hosting: Local server: http://localhost:5000
+[debug] [2019-05-20T15:59:14.282Z] Functions runtime initialized.
+[debug] [2019-05-20T15:59:14.282Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T15:59:15.017Z] firebase-admin has been stubbed.
+[info] i  functions: HTTP trigger initialized at http://localhost:5001/labseu1-db-test/us-central1/app
+[debug] [2019-05-20T16:14:41.783Z] Accepted request GET /labseu1-db-test/us-central1/app --> app
+[debug] [2019-05-20T16:14:42.284Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T16:14:42.286Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T16:14:43.042Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T16:14:43.202Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T16:14:43.203Z] 
+[debug] [2019-05-20T16:14:43.203Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T16:14:43.209Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\7948"}
+[debug] [2019-05-20T16:14:43.209Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\7948"}
+[debug] [2019-05-20T16:14:43.216Z] Ephemeral server used!
+[debug] [2019-05-20T16:14:43.223Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T16:18:32.538Z] Accepted request POST /labseu1-db-test/us-central1/app --> app
+[debug] [2019-05-20T16:18:32.940Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T16:18:32.941Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T16:18:33.686Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T16:18:33.838Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T16:18:33.838Z] 
+[debug] [2019-05-20T16:18:33.839Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T16:18:33.844Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\9276"}
+[debug] [2019-05-20T16:18:33.845Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\9276"}
+[debug] [2019-05-20T16:18:33.864Z] Ephemeral server used!
+[debug] [2019-05-20T16:18:33.869Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T16:20:03.613Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T16:20:04.036Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T16:20:04.037Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T16:20:04.778Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T16:20:04.931Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T16:20:04.931Z] 
+[debug] [2019-05-20T16:20:04.931Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T16:20:04.937Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\22700"}
+[debug] [2019-05-20T16:20:04.938Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\22700"}
+[debug] [2019-05-20T16:20:04.956Z] Ephemeral server used!
+[debug] [2019-05-20T16:20:04.966Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T16:29:11.388Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T16:29:11.799Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T16:29:11.800Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T16:29:12.563Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T16:29:12.726Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T16:29:12.726Z] 
+[debug] [2019-05-20T16:29:12.726Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T16:29:12.733Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\10828"}
+[debug] [2019-05-20T16:29:12.733Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\10828"}
+[debug] [2019-05-20T16:29:12.750Z] Ephemeral server used!
+[debug] [2019-05-20T16:29:12.759Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T16:57:06.720Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T16:57:07.140Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T16:57:07.141Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T16:57:07.899Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T16:57:08.068Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T16:57:08.068Z] 
+[debug] [2019-05-20T16:57:08.068Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T16:57:08.074Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\20064"}
+[debug] [2019-05-20T16:57:08.074Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\20064"}
+[debug] [2019-05-20T16:57:08.092Z] Ephemeral server used!
+[debug] [2019-05-20T16:57:08.100Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T17:01:51.009Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T17:01:51.443Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T17:01:51.444Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T17:01:52.198Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T17:01:52.356Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T17:01:52.356Z] 
+[debug] [2019-05-20T17:01:52.356Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T17:01:52.362Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\21748"}
+[debug] [2019-05-20T17:01:52.362Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\21748"}
+[debug] [2019-05-20T17:01:52.381Z] Ephemeral server used!
+[debug] [2019-05-20T17:01:52.390Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T17:28:35.391Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T17:28:35.859Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T17:28:35.861Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T17:28:36.636Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T17:28:36.801Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T17:28:36.802Z] 
+[debug] [2019-05-20T17:28:36.802Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T17:28:36.808Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\20680"}
+[debug] [2019-05-20T17:28:36.809Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\20680"}
+[debug] [2019-05-20T17:28:36.827Z] Ephemeral server used!
+[debug] [2019-05-20T17:28:36.836Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s
+[debug] [2019-05-20T17:43:44.709Z] Accepted request POST /labseu1-db-test/us-central1/app/charge --> app
+[debug] [2019-05-20T17:43:45.130Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "app"
+[debug] [2019-05-20T17:43:45.131Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-05-20T17:43:45.849Z] firebase-admin has been stubbed.
+[debug] [2019-05-20T17:43:46.007Z] Trigger "app" has been found, beginning invocation!
+[debug] [2019-05-20T17:43:46.008Z] 
+[debug] [2019-05-20T17:43:46.008Z] Running app in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-20T17:43:46.013Z] {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\16908"}
+[debug] [2019-05-20T17:43:46.013Z] [functions] Runtime ready! Sending request! {"socketPath":"\\\\?\\pipe\\D:\\mango\\labseu1-db-BE\\functions\\16908"}
+[debug] [2019-05-20T17:43:46.031Z] Ephemeral server used!
+[debug] [2019-05-20T17:43:46.040Z] Ephemeral server survived.
+[info] i  functions: Finished "app" in ~1s

@@ -1,3 +1,5 @@
+// *** USE ONLY FOR LOCALCHOSTING IF NOT USING FIREBASE FUNCTION HOSTING ***
+
 const app = require('express')();
 const stripe = require('stripe')('sk_test_Fp1czcN7sosPfrOFPrZz1Ddu00JL3WqPgd');
 const cors = require('cors');
