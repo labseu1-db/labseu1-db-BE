@@ -48,6 +48,8 @@ async function sendWelcomeEmail(email) {
   await mailTransport.sendMail(mailOptions, (err, res) => {
     if (err) {
       console.log("Error:", err);
+    } else {
+      console.log("Email successfully send to", email);
     }
   });
   return null;
