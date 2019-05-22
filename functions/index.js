@@ -1,73 +1,61 @@
-/**
- * Copyright 2016 Google Inc. All Rights Reserved.
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
-'use strict';
+"use strict";
 
-const functions = require('firebase-functions');
-const moment = require('moment');
-const cors = require('cors')({
-  origin: true
+const functions = require("firebase-functions");
+const APP_NAME = "Pinely";
+
+require("dotenv").config();
+
+const admin = require("firebase-admin");
+const nodemailer = require("nodemailer");
+// const smtpTransport = require("nodemailer-smtp-transport");
+const xoauth2 = require("xoauth2");
+const RedirectUrl = "https://labseu1-db-test.firebaseapp.com/register";
+
+const gmailEmail = functions.config().email.address;
+const gmailPassword = functions.config().email.password;
+var mailTransport = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: gmailEmail,
+    pass: gmailPassword
+  },
+  tls: {
+    rejectUnauthorized: false
+  }
 });
 
-/**
- * Returns the server's date. You must provide a `format` URL query parameter or `format` vaue in
- * the request body with which we'll try to format the date.
- *
- * Format must follow the Node moment library. See: http://momentjs.com/
- *
- * Example format: "MMMM Do YYYY, h:mm:ss a".
- * Example request using URL query parameters:
- *   https://us-central1-labseu1-db-test.cloudfunctions.net/date?format=MMMM%20Do%20YYYY%2C%20h%3Amm%3Ass%20a
- * Example request using request body with cURL:
- *   curl -H 'Content-Type: application/json' /
- *        -d '{"format": "MMMM Do YYYY, h:mm:ss a"}' /
- *        https://us-central1-<project-id>.cloudfunctions.net/date
- *
- * This endpoint supports CORS.
- */
+admin.initializeApp();
 
-// exports.date = functions.https.onRequest((req, res) => {
-//   console.log('hello!');
-//   if (req.method === 'PUT') {
-//     return res.status(403).send('Forbidden!');
-//   }
-//   return cors(req, res, () => {
-//     let format = req.query.format;
-//     if (!format) {
-//       format = req.body.format;
-//     }
-//     const formattedDate = moment().format(format);
-//     console.log('Sending Formatted date:', formattedDate);
-//     res.status(200).send(formattedDate);
-//   });
-// });
-// [END all]
-
-exports.sendWelcomeEmail = functions.firestore.document('organisations/{orgId}').onWrite((change, context) => {
-  const newValue = change.afterports.data();
-  const previousValue = change.before.data();
-
-  console.log('newValue', newValue, 'previousValue', previousValue);
-  //const email = user.email;
+exports.dbCreate = functions.firestore.document("organisations/{orgId}").onCreate((snap, context) => {
+  const allEmails = snap._fieldsProto.arrayOfUsersEmails.arrayValue.values;
+  const adminEmail = snap._fieldsProto.arrayOfAdminsEmails.arrayValue.values[0];
+  Promise.all([filterEmails(allEmails, adminEmail)]).then(values => {
+    let userEmails = values[0];
+    userEmails.forEach(userEmail => {
+      sendWelcomeEmail(userEmail.stringValue);
+    });
+  });
 });
 
-exports.updateUser = functions.firestore.document('users/{userId}').onUpdate((change, context) => {
-  // Get an object representing the current document
-  console.log('updateUser');
-  const newValue = change.after.data();
-  return newValue;
-  // ...or the previous value before this update
-  const previousValue = change.before.data();
-});
+async function sendWelcomeEmail(email) {
+  const mailOptions = {
+    from: `${APP_NAME} <noreply@firebase.com>`,
+    to: `${email}`
+  };
+  mailOptions.subject = `Welcome to ${APP_NAME}!`;
+  mailOptions.text = `Hey! Welcome to ${APP_NAME}. I hope you will enjoy our service.`;
+  mailOptions.html = `<p>Click <a href=${RedirectUrl}>here </a>to Register</p>`;
+  await mailTransport.sendMail(mailOptions, (err, res) => {
+    if (err) {
+      console.log("Error:", err);
+    }
+  });
+  return null;
+}
+
+async function filterEmails(allEmails, adminEmail) {
+  const userEmails = await allEmails.filter(user => {
+    return user.stringValue !== adminEmail.stringValue;
+  });
+  return userEmails;
+}
